@@ -12,6 +12,7 @@ async function main() {
         let url = process.env.URL;
         const response = await axios.get(url)
         const responseData = response.data.articles
+        console.log(responseData[0])
         res.json({foundNews : responseData})
     })
     app.listen(8000, async function () {

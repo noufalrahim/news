@@ -11,7 +11,9 @@ function Home() {
     useEffect(() => {
         async function FetchNews() {
             setIsLoading(true)
-            const response = await axios.get("https://news-fafe.onrender.com/")
+            // const response = await axios.get("https://news-fafe.onrender.com/")
+            const response = await axios.get("http://localhost:8000/")
+
             const responseData = response.data.foundNews
             setIsLoading(false)
             setNews(responseData)
@@ -28,7 +30,7 @@ function Home() {
                     <div className="date"><span style={{ fontStyle: "italic" }}>{date.toDateString()}</span>
                    
                     </div>
-                    <header>TIMES GAZATTE</header>
+                    <header>THE TIMES GAZATTE</header>
                 </div>
 
                 <div className="subhead">US * UK * CANADA * INDIA * DUBAI * QATAR </div>
@@ -43,6 +45,9 @@ function Home() {
                             <div className="card-body">
                                 <h5 className="card-title">{newsItem.title}</h5>
                                 <p className="card-text">{newsItem.content.slice(0,-15)}... <Link to={newsItem.url}>Click here</Link></p>
+                                    <p class="card-text"><small class="text-muted">{newsItem.author}</small></p>
+
+
                             </div>
                         </div>
                         </div>

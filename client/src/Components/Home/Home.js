@@ -34,10 +34,10 @@ function Home() {
                     <div className="date"><span style={{ fontStyle: "italic" }}>{date.toDateString()}</span>
                    
                     </div>
-                    <header>THE RODENT'S GAZATTE</header>
+                    <header>THE RODENT'S GAZETTE</header>
                 </div>
 
-                <div className="subhead">DAILY WORLD NEWS by GERONIMO STILTON</div>
+                <div className="subhead">DAILY NEWS by GERONIMO STILTON</div>
             </div>
             {isLoading ? <div><Loading/></div> : error ?<p className="failed">Server Error..! Failed to Fetch News!</p> : 
             <div className="container">

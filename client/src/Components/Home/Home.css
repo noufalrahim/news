@@ -16,6 +16,59 @@ header{
     
 
 }
+
+.form-floating {
+    margin-top: 3%;
+}
+.form-control{
+    margin-left: 1%;
+    border-color: black;
+    border-radius: 25px;
+
+}
+
+.sbtn{
+    text-align: end;
+    position: relative;
+    top: -50%;
+    width: 10%;
+    left: 75%;
+}
+.s-btn{
+    background-color: white;
+    letter-spacing: 0.5px;
+    border: none;
+
+}
+
+.typewriter .txt-move {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+.label{
+    margin-left: 3%;
+}
+
 p{
     margin-top: 0;
     margin-bottom: 20px;
@@ -215,6 +268,14 @@ p{
     font-feature-settings: "liga", "dlig";
 
 }
+.input{
+    height: 7vh;
+    width: 80%;
+    margin: 0 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .collumn .citation:before{
     border-top: 1px solid #2f2f2f;
     content: '';
@@ -244,11 +305,20 @@ p{
     mix-blend-mode: multiply;
     width: 100%;
 }
+.card{
+    width: 18rem;
+    border: 2px solid rgb(170, 170, 170);
+    background-color: #f9f7f1;
+    margin: 5% 1%;
+}
 /*________________________________________________________________________________________________________________________________*/
 /*MEDIAQUERIES*/
 @media only all and (max-width: 1300px) {
     .dateBox{
         display: none;
+    }
+    .card{
+        margin-left: 10%;
     }
 
 }
@@ -256,14 +326,17 @@ p{
     .collumn{
         width: 31%;
     }
+    
 
 }
     @media only all and (max-width: 900px) {
     .collumn{
         width: 47%;
     }
+    
 
 }
+
 @media only all and (max-width: 600px) {
     .collumn{
         width: 100%;
@@ -278,12 +351,7 @@ p{
         line-height: 54px;
         overflow: hidden;
     }
+    
 
 }
 
-.card{
-    width: 18rem;
-    border: 2px solid rgb(170, 170, 170);
-    background-color: #f9f7f1;
-    margin: 5% 1%;
-}

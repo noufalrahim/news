@@ -1,28 +1,36 @@
 import "./Home.css"
 import axios from "axios";
-import {useEffect, useState } from "react"
+import {useEffect, useState, useRef } from "react"
 import { Link } from "react-router-dom";
 import Loading from "../UI/LoadingSpinner/Loading";
 function Home() {
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [news, setNews] = useState([]);
+    const [search, setSearch] = useState("Google") 
+    const inputRef = useRef();
+    const date = new Date()
+
+    function searcHandler(){
+        setSearch(inputRef.current.value)
+        console.log(inputRef.current.value)
+    }
 
     useEffect(() => {
         async function FetchNews() {
             setIsLoading(true)
-            const response = await axios.get("https://news-fafe.onrender.com/")
-           
-
-            const responseData = response.data.foundNews
+            const response = await axios.get(`https://newsapi.org/v2/everything?q=${"all"}&from=${date.getFullYear()}-${date.getMonth()}-${date.getDate()}&to=${date.getFullYear()}-${date.getMonth()}-${date.getDate()}&sortBy=popularity&apiKey=291d6b9c094142b4907fca124c03e2c7`)
+            console.log(response.data.articles)
+            const responseData = response.data.articles
             setIsLoading(false)
             setNews(responseData)
         }
         FetchNews().catch((err) => {
             setError(true)
         });
-    }, [])
-    const date = new Date();
+    }, [search])
+
+    
     return (
         <>
             <div className="head">
@@ -33,11 +41,18 @@ function Home() {
                     <header>THE TIMES GAZATTE</header>
                 </div>
 
-                <div className="subhead">US * UK * CANADA * INDIA * DUBAI * QATAR </div>
+                <div className="subhead">DAILY WORLD NEWS</div>
             </div>
             {isLoading ? <div><Loading/></div> : error ?<p className="failed">Server Error..! Failed to Fetch News!</p> : 
             <div className="container">
                 <div className="row">
+                
+                {/* <input className="input" id="search" placeholder="Search here: Biden"/> */}
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Search" ref={inputRef}/>
+                            <label className="label typewriter" for="floatingInput"><p className="txt-move">Search</p></label>
+                            <div className="sbtn"><button className="s-btn" onClick={searcHandler}><i class="fas fa-solid fa-magnifying-glass">Search</i></button></div>
+                        </div>
                 {news.map((newsItem) => (
                     <div className="col-sm-1 col-md-6 col-lg-3">
                         <div className="card">

@@ -17,7 +17,7 @@ function Home() {
     useEffect(() => {
         async function FetchNews() {
             setIsLoading(true)
-            const response = await axios.get(`http://localhost:8000/?q=${search}`)
+            const response = await axios.get(`https://news-fafe.onrender.com/?q=${search}`)
             console.log(response)
             const responseData = response.data.foundNews
             setIsLoading(false)

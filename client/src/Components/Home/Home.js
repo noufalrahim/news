@@ -19,7 +19,7 @@ function Home() {
     useEffect(() => {
         async function FetchNews() {
             setIsLoading(true)
-            const response = await axios.get(`https://newsapi.org/v2/everything?q=${"all"}&from=${date.getFullYear()}-${date.getMonth()}-${date.getDate()}&to=${date.getFullYear()}-${date.getMonth()}-${date.getDate()}&sortBy=popularity&apiKey=291d6b9c094142b4907fca124c03e2c7`)
+            const response = await axios.get(`https://newsapi.org/v2/everything?q=${"all"}&from=${date.getFullYear()}-${date.getMonth()}-${date.getDate()}&to=${date.getFullYear()}-${date.getMonth()}-${date.getDate()}&sortBy=popularity`)
             console.log(response.data.articles)
             const responseData = response.data.articles
             setIsLoading(false)
